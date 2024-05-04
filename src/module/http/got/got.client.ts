@@ -65,13 +65,20 @@ export class GotClient implements WebClient {
             ...this._option.headers,
             'Content-Type': inserter.mediaType,
         };
-        this._option.body = inserter;
+        this._option.json = inserter;
         return this;
     }
 
     public param(param: Record<string, unknown>): this {
-        this._option.params = param;
+        this._option.url += this.getParam(param);
         return this;
+    }
+
+    private getParam(param: Record<string, unknown>): string {
+        const paramStr = Object.entries(param)
+            .map(([key, value]) => `${key}=${value}`)
+            .join('&');
+        return paramStr;
     }
 
     public uri(uri: string): this {
