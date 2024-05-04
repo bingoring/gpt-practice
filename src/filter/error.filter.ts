@@ -28,7 +28,7 @@ export class ErrorExceptionFilter implements ExceptionFilter {
                 },
             };
 
-            console.error(exception)
+            console.error(exception);
             response.status(statusCode).json(responseBody);
             return;
         }
