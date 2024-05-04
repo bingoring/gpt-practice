@@ -1,8 +1,7 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsEnum, IsOptional, IsString } from "class-validator";
-import { ValueOfType } from "../util/valueof.util";
-import { Type } from "class-transformer";
-
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEnum, IsOptional, IsString } from 'class-validator';
+import { ValueOfType } from '../util/valueof.util';
+import { Type } from 'class-transformer';
 
 export const HttpStatusCode = {
     ok: 200,
@@ -44,4 +43,3 @@ export abstract class AbstractGatewayResponse {
     @Type(() => ResponseErrorType)
     error?: ResponseErrorType;
 }
-
